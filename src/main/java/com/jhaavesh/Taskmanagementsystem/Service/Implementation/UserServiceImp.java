@@ -35,6 +35,7 @@ public class UserServiceImp  implements UserService {
 
     @Override
     public List<User> getAllUsers() {
+
         return userRepository.findAll();
     }
 
@@ -47,7 +48,8 @@ public class UserServiceImp  implements UserService {
 
             existingUser.setName(userDetails.getName());
             existingUser.setEmail(userDetails.getEmail());
-
+            existingUser.setPassword(userDetails.getPassword());
+            existingUser.setRoleId(userDetails.getRoleId());
             return userRepository.save(existingUser);
         } else {
             return null;

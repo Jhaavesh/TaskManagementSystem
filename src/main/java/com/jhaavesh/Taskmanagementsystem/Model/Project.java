@@ -5,22 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Data
-public class User {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Project {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    @Column(unique = true)
-    private String email;
 
-    @Column(unique = true)
-    private String password;
+    @Column(name = "projectName", unique = true)
+    private String projectName;
 
-    private Long roleId;
-
+    private String description;
 }

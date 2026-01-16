@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user/api")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class UserController {
 
 
@@ -48,13 +49,13 @@ public class UserController {
         if (updatedUser != null) {
             return ResponseEntity.ok(updatedUser);
         } else {
-            return ResponseEntity.notFound().build(); // 404 aaye ga agr  user nhi mila Aj
+            return ResponseEntity.notFound().build(); // 404 aaye ga agr  user nhi mila  Aj
         }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
-        return ResponseEntity.ok("User deleted successfully with id: " + id);
+        return ResponseEntity.ok("User deleted successfully" + id);
     }
 }
